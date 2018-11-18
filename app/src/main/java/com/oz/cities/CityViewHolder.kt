@@ -10,6 +10,10 @@ class CityViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         with(itemView) {
             nameTextView.text = city.name
             populationTextView.text = city.population.toString()
+            GlideApp.with(this)
+                .load(city.emblemUrl)
+                .placeholder(R.drawable.ic_city)
+                .into(emblemImageView)
             setOnClickListener { itemClickListener.invoke(city) }
         }
     }
