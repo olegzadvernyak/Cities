@@ -1,15 +1,18 @@
-package com.oz.cities
+package com.oz.cities.ui
 
-import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.recyclerview.widget.RecyclerView
+import com.oz.cities.data.City
+import com.oz.cities.R
 
 typealias ItemClickListener<T> = (T) -> Unit
 
 class CityAdapter(
-    private val cities: List<City>,
-    private val itemClickListener: ItemClickListener<City>
+    private val itemClickListener: ItemClickListener<City>? = null
 ) : RecyclerView.Adapter<CityViewHolder>() {
+
+    private var cities: List<City>? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CityViewHolder {
         return CityViewHolder(
@@ -20,11 +23,18 @@ class CityAdapter(
     }
 
     override fun getItemCount(): Int {
-        return cities.size
+        return cities?.size ?: 0
     }
 
     override fun onBindViewHolder(holder: CityViewHolder, position: Int) {
-        holder.bind(cities[position], itemClickListener)
+        cities?.get(position)?.let { city ->
+            holder.bind(city, itemClickListener)
+        }
+    }
+
+    fun setCities(cities: List<City>) {
+        this.cities = cities
+        notifyDataSetChanged()
     }
 
 }

@@ -1,7 +1,8 @@
-package com.oz.cities
+package com.oz.cities.ui
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
+import com.oz.cities.R
 import kotlinx.android.synthetic.main.cities_list_activity.*
 
 class CitiesListActivity : AppCompatActivity() {

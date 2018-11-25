@@ -11,9 +11,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
+        android:name=".CitiesApplication"
         tools:ignore="GoogleAppIndexingWarning">
 
-        <activity android:name=".CitiesListActivity">
+        <activity android:name=".ui.CitiesListActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
